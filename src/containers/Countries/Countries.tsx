@@ -2,9 +2,11 @@ import {useCallback, useEffect, useState} from 'react';
 import {ApiCountries, ICountry} from '../../types';
 import axios from 'axios';
 import {BASE_URL, COUNTRIES_URL} from '../../constants';
+import Country from '../../components/Country/Country';
 
 const Countries = () => {
   const [countries, setCountries] = useState<ICountry[]>([]);
+  const [selectedCountryCode, setSelectedCountryCode] = useState<string | null>(null);
 
   const fetchData = useCallback(async () => {
     const {data: countries} = await axios.get<ApiCountries[]>(BASE_URL + COUNTRIES_URL);
@@ -16,9 +18,14 @@ const Countries = () => {
     void fetchData();
   }, [fetchData]);
 
-  return (
-    <div>
 
+  return (
+    <div className='countries'>
+      <div className='countries-list'>
+        {countries.map((country => (
+          <Country key={country.alpha3Code} name={country.name} onClick={() => setSelectedCountryCode(country.alpha3Code)}/>
+        )))}
+      </div>
     </div>
   );
 };

@@ -1,0 +1,18 @@
+.countries {
+  display: flex;
+  height: 900px;
+}
+
+.countries-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: auto;
+  font-size: 18px;
+  border: 1px solid #000;
+}
+
+.country {
+  margin: 10px auto 10px 10px;
+  cursor: pointer;
+}
