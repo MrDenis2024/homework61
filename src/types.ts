@@ -3,11 +3,6 @@ export interface ICountry {
   alpha3Code: string;
 }
 
-export interface ApiCountries {
-  name: string;
-  alpha3Code: string;
-}
-
 export interface ApiCountry {
   name: string;
   capital: string;

@@ -16,6 +16,7 @@
 .country {
   margin: 10px auto 10px 10px;
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .country-info {

@@ -1,5 +1,5 @@
 import {useCallback, useEffect, useState} from 'react';
-import {ApiCountries, ICountry} from '../../types';
+import {ICountry} from '../../types';
 import axios from 'axios';
 import {BASE_URL, COUNTRIES_URL} from '../../constants';
 import Country from '../../components/Country/Country';
@@ -10,7 +10,7 @@ const Countries = () => {
   const [selectedCountryCode, setSelectedCountryCode] = useState<string | null>(null);
 
   const fetchData = useCallback(async () => {
-    const {data: countries} = await axios.get<ApiCountries[]>(BASE_URL + COUNTRIES_URL);
+    const {data: countries} = await axios.get<ICountry[]>(BASE_URL + COUNTRIES_URL);
 
     setCountries(countries);
   }, []);
@@ -27,7 +27,7 @@ const Countries = () => {
           <Country key={country.alpha3Code} name={country.name} onClick={() => setSelectedCountryCode(country.alpha3Code)}/>
         )))}
       </div>
-      {selectedCountryCode ? <CountryInfo code={selectedCountryCode}/> : <p>Выберите страну</p>}
+      <CountryInfo code={selectedCountryCode}/>
     </div>
   );
 };
