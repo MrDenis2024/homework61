@@ -1,5 +1,6 @@
 .countries {
   display: flex;
+  gap: 20px;
   height: 900px;
 }
 
@@ -15,4 +16,25 @@
 .country {
   margin: 10px auto 10px 10px;
   cursor: pointer;
+}
+
+.country-info {
+  flex-grow: 1;
+  border: 1px solid #000;
+  padding: 20px;
+}
+
+.country-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.country-flag {
+  height: 150px;
+  border: 1px solid #000;
+}
+
+.capital {
+  font-weight: bold;
+  font-size: 20px;
 }
